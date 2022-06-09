@@ -273,9 +273,9 @@ nav {
 		}
 		@include list-style;
 		&-list {
-			@include link-style($off-black, #000);
+			@include link-style($off-black, #000000);
 			&-link {
-				text-decoration: none;
+				// text-decoration: none;
 				&-container {
 					display: flex;
 					align-items: center;

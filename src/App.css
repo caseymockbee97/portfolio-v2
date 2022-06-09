@@ -432,11 +432,7 @@ nav a:hover {
 }
 
 .contact-container-list:hover {
-  color: #000;
-}
-
-.contact-container-list-link {
-  text-decoration: none;
+  color: #000000;
 }
 
 .contact-container-list-link-container {
