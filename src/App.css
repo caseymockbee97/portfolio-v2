@@ -4,6 +4,7 @@
   --font-l: 3rem;
   --font-m: 2rem;
   --font-s: 1.5rem;
+  --font-xs: 1rem;
   --skill-container: min(60vw, 1400px);
   --scroll: 0;
 }
@@ -57,6 +58,14 @@ nav a:hover {
   color: #a23b72;
 }
 
+nav a.sub-a {
+  font-size: var(--font-xs);
+}
+
+nav a.sub-a::before {
+  content: "- ";
+}
+
 @media (min-width: 1301px) {
   nav {
     width: -webkit-fit-content;
@@ -84,6 +93,9 @@ nav a:hover {
         -ms-flex-pack: center;
             justify-content: center;
     gap: var(--font-s);
+  }
+  nav a.sub-a {
+    display: none;
   }
 }
 
@@ -368,12 +380,12 @@ nav a:hover {
           justify-content: center;
 }
 
-.contact:nth-child(even) {
+.contact:nth-child(odd) {
   background-image: radial-gradient(circle at center, #000000, #181818 50vmax);
   color: #d3d3d3;
 }
 
-.contact:nth-child(odd) {
+.contact:nth-child(even) {
   background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
   color: #181818;
 }

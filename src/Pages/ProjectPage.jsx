@@ -3,9 +3,9 @@ import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
 // AiFillLinkedin
 
 export default function ProjectPage(props) {
-	let { skills, title, image, liveLink, githubLink } = props.project;
+	let { skills, title, idName, image, liveLink, githubLink } = props.project;
 	return (
-		<div className="project alternate-theme">
+		<div id={idName} className="project alternate-theme">
 			<div className="project-container">
 				<h1 className="project-container-header">{title}</h1>
 				<div className="project-container-links">

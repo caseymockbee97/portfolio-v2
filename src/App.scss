@@ -23,6 +23,7 @@ $off-purple: #7435a7;
 	--font-l: 3rem;
 	--font-m: 2rem;
 	--font-s: 1.5rem;
+	--font-xs: 1rem;
 	--skill-container: min(60vw, 1400px);
 	--scroll: 0;
 }
@@ -131,10 +132,16 @@ $off-purple: #7435a7;
 nav {
 	display: flex;
 	position: fixed;
-	& a {
+	a {
 		text-align: center;
 		font-size: var(--font-m);
 		@include link-style;
+	}
+	a.sub-a {
+		font-size: var(--font-xs);
+		&::before {
+			content: "- ";
+		}
 	}
 }
 
@@ -157,6 +164,9 @@ nav {
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: var(--font-s);
+		a.sub-a {
+			display: none;
+		}
 	}
 }
 
@@ -257,11 +267,11 @@ nav {
 
 .contact {
 	@include individual-page;
-	&:nth-child(even) {
+	&:nth-child(odd) {
 		background-image: $background-dark;
 		color: $off-white;
 	}
-	&:nth-child(odd) {
+	&:nth-child(even) {
 		background-image: $background-light;
 		color: $off-black;
 	}
@@ -275,7 +285,6 @@ nav {
 		&-list {
 			@include link-style($off-black, #000000);
 			&-link {
-				// text-decoration: none;
 				&-container {
 					display: flex;
 					align-items: center;
