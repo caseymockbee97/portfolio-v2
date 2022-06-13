@@ -1,10 +1,13 @@
 import React from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineSend } from "react-icons/ai";
+import { projects } from "../Assets/ProjectInfo";
 
 export default function ContactMePage() {
+	const isEven = projects.length % 2 === 0;
+
 	return (
 		<>
-			<div id="contact-me" className="contact">
+			<div id="contact-me" className={`contact ${isEven ? "even" : "odd"}`}>
 				<div className="contact-container">
 					<h1 className="contact-container-header">Contact Me</h1>
 					<ul className="contact-container-list">

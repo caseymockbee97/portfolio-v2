@@ -16,6 +16,7 @@
     --font-l: calc(3rem * 0.7);
     --font-m: calc(2rem * 0.7);
     --font-s: calc(1.5rem * 0.7);
+    --font-xs: calc(1rem * 0.7);
     --skill-container: 80vw;
   }
 }
@@ -27,6 +28,7 @@
     --font-l: calc(3rem * 0.5);
     --font-m: calc(2rem * 0.5);
     --font-s: calc(1.5rem * 0.5);
+    --font-xs: calc(1rem * 0.5);
     --skill-container: 90vw;
   }
 }
@@ -60,10 +62,6 @@ nav a:hover {
 
 nav a.sub-a {
   font-size: var(--font-xs);
-}
-
-nav a.sub-a::before {
-  content: "- ";
 }
 
 @media (min-width: 1301px) {
@@ -380,12 +378,12 @@ nav a.sub-a::before {
           justify-content: center;
 }
 
-.contact:nth-child(odd) {
+.contact.even {
   background-image: radial-gradient(circle at center, #000000, #181818 50vmax);
   color: #d3d3d3;
 }
 
-.contact:nth-child(even) {
+.contact.odd {
   background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
   color: #181818;
 }

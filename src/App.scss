@@ -37,6 +37,7 @@ $off-purple: #7435a7;
 		--font-l: calc(3rem * #{$multiplier});
 		--font-m: calc(2rem * #{$multiplier});
 		--font-s: calc(1.5rem * #{$multiplier});
+		--font-xs: calc(1rem * #{$multiplier});
 		--skill-container: 80vw;
 	}
 }
@@ -50,6 +51,7 @@ $off-purple: #7435a7;
 		--font-l: calc(3rem * #{$multiplier});
 		--font-m: calc(2rem * #{$multiplier});
 		--font-s: calc(1.5rem * #{$multiplier});
+		--font-xs: calc(1rem * #{$multiplier});
 		--skill-container: 90vw;
 	}
 }
@@ -139,9 +141,6 @@ nav {
 	}
 	a.sub-a {
 		font-size: var(--font-xs);
-		&::before {
-			content: "- ";
-		}
 	}
 }
 
@@ -267,11 +266,12 @@ nav {
 
 .contact {
 	@include individual-page;
-	&:nth-child(odd) {
+
+	&.even {
 		background-image: $background-dark;
 		color: $off-white;
 	}
-	&:nth-child(even) {
+	&.odd {
 		background-image: $background-light;
 		color: $off-black;
 	}
