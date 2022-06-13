@@ -86,6 +86,7 @@ nav a.sub-a {
   }
   nav .nav-image {
     width: 3.5em;
+    padding-left: var(--font-xs);
   }
 }
 
