@@ -48,7 +48,7 @@ nav {
 }
 
 nav a {
-  text-align: center;
+  text-align: left;
   font-size: var(--font-m);
   text-decoration: none;
   color: #2e86ab;
@@ -62,6 +62,7 @@ nav a:hover {
 
 nav a.sub-a {
   font-size: var(--font-xs);
+  text-indent: var(--font-xs);
 }
 
 @media (min-width: 1301px) {

@@ -135,12 +135,13 @@ nav {
 	display: flex;
 	position: fixed;
 	a {
-		text-align: center;
+		text-align: left;
 		font-size: var(--font-m);
 		@include link-style;
 	}
 	a.sub-a {
 		font-size: var(--font-xs);
+		text-indent: var(--font-xs);
 	}
 }
 
