@@ -134,6 +134,9 @@ $off-purple: #7435a7;
 nav {
 	display: flex;
 	position: fixed;
+	.nav-image {
+		width: 2em;
+	}
 	a {
 		text-align: left;
 		font-size: var(--font-m);
@@ -153,6 +156,9 @@ nav {
 		right: 2rem;
 		flex-direction: column;
 		justify-content: center;
+		.nav-image {
+			width: 3.5em;
+		}
 	}
 }
 

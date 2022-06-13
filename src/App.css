@@ -47,6 +47,10 @@ nav {
   position: fixed;
 }
 
+nav .nav-image {
+  width: 2em;
+}
+
 nav a {
   text-align: left;
   font-size: var(--font-m);
@@ -79,6 +83,9 @@ nav a.sub-a {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  nav .nav-image {
+    width: 3.5em;
   }
 }
 
