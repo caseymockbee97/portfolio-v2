@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NavContext } from "../Components/NavContext";
 
 export default function SkillsPage() {
 	const skills = [
@@ -18,8 +19,15 @@ export default function SkillsPage() {
 		"VS Code",
 		"Storybook",
 	];
+
+	const { setActiveLink } = useContext(NavContext);
+
 	return (
-		<div id="skills" className="skills">
+		<div
+			onMouseEnter={() => setActiveLink("skills")}
+			id="skills"
+			className="skills"
+		>
 			<div className="skills-container">
 				<h1 className="skills-container-header">Technical Skills</h1>
 				<ul className="skills-container-list">

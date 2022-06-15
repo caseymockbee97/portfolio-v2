@@ -64,6 +64,10 @@ nav a:hover {
   color: #a23b72;
 }
 
+nav a.active {
+  color: #a23b72;
+}
+
 nav a.sub-a {
   font-size: var(--font-xs);
   text-indent: var(--font-xs);

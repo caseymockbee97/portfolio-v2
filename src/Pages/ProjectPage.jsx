@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NavContext } from "../Components/NavContext";
 import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
 // AiFillLinkedin
 
 export default function ProjectPage(props) {
 	let { skills, title, idName, image, liveLink, githubLink } = props.project;
+	const { setActiveLink } = useContext(NavContext);
 	return (
-		<div id={idName} className="project alternate-theme">
+		<div
+			onMouseEnter={() => setActiveLink(idName)}
+			id={idName}
+			className="project alternate-theme"
+		>
 			<div className="project-container">
 				<h1 className="project-container-header">{title}</h1>
 				<div className="project-container-links">

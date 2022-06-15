@@ -141,6 +141,9 @@ nav {
 		text-align: left;
 		font-size: var(--font-m);
 		@include link-style;
+		&.active {
+			color: $off-pink;
+		}
 	}
 	a.sub-a {
 		font-size: var(--font-xs);

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { projects } from "../Assets/ProjectInfo";
 import ProfileImage from "../Assets/Images/ProfileImage.png";
+import { NavContext } from "./NavContext";
 
 export default function NavComponent() {
+	const { activeLink } = useContext(NavContext);
+	const idNames = projects.map((project) => project.idName);
+
 	return (
 		<nav>
 			<img
@@ -11,15 +15,30 @@ export default function NavComponent() {
 				className="nav-image"
 				alt="Cartoon Profile"
 			/>
-			<a href="#home">Home</a>
-			<a href="#skills">Skills</a>
-			<a href="#projects">Projects</a>
+			<a href="#home" className={activeLink === "home" ? "active" : ""}>
+				Home
+			</a>
+			<a href="#skills" className={activeLink === "skills" ? "active" : ""}>
+				Skills
+			</a>
+			<a
+				href="#projects"
+				className={idNames.includes(activeLink) ? "active" : ""}
+			>
+				Projects
+			</a>
 			{projects.map((project) => (
-				<a key={project.idName} className="sub-a" href={`#${project.idName}`}>
+				<a
+					className={`sub-a${activeLink === project.idName ? " active" : ""}`}
+					key={project.idName}
+					href={`#${project.idName}`}
+				>
 					{project.title}
 				</a>
 			))}
-			<a href="#contact-me">Contact Me</a>
+			<a className={activeLink === "contact" ? "active" : ""} href="#contact">
+				Contact Me
+			</a>
 		</nav>
 	);
 }
