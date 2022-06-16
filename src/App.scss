@@ -134,12 +134,12 @@ $off-purple: #7435a7;
 nav {
 	display: flex;
 	position: fixed;
-	.nav-image {
+	font-size: var(--font-m);
+	a .nav-image {
 		width: 2em;
 	}
 	a {
 		text-align: left;
-		font-size: var(--font-m);
 		@include link-style;
 		&.active {
 			color: $off-pink;
@@ -159,8 +159,8 @@ nav {
 		right: 2rem;
 		flex-direction: column;
 		justify-content: center;
-		.nav-image {
-			width: 3.5em;
+		a .nav-image {
+			width: 2em;
 			padding-left: var(--font-xs);
 		}
 	}

@@ -45,15 +45,15 @@ nav {
   display: -ms-flexbox;
   display: flex;
   position: fixed;
+  font-size: var(--font-m);
 }
 
-nav .nav-image {
+nav a .nav-image {
   width: 2em;
 }
 
 nav a {
   text-align: left;
-  font-size: var(--font-m);
   text-decoration: none;
   color: #2e86ab;
   -webkit-transition: color 0.7s;
@@ -88,8 +88,8 @@ nav a.sub-a {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  nav .nav-image {
-    width: 3.5em;
+  nav a .nav-image {
+    width: 2em;
     padding-left: var(--font-xs);
   }
 }
