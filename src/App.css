@@ -425,7 +425,7 @@ nav a.sub-a {
           box-sizing: border-box;
   border-radius: var(--font-s);
   text-align: center;
-  width: 100%;
+  width: var(--skill-container);
   margin-bottom: var(--font-s);
 }
 
