@@ -40,7 +40,7 @@ export default function NavComponent() {
 				</a>
 			))}
 			<a className={activeLink === "contact" ? "active" : ""} href="#contact">
-				Contact Me
+				Contact
 			</a>
 		</nav>
 	);

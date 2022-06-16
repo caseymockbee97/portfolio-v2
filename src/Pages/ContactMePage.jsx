@@ -1,6 +1,11 @@
 import React, { useContext } from "react";
 import { NavContext } from "../Components/NavContext";
-import { AiFillGithub, AiFillLinkedin, AiOutlineSend } from "react-icons/ai";
+import {
+	AiFillFilePdf,
+	AiFillGithub,
+	AiFillLinkedin,
+	AiOutlineMail,
+} from "react-icons/ai";
 import { projects } from "../Assets/ProjectInfo";
 
 export default function ContactMePage() {
@@ -48,7 +53,19 @@ export default function ContactMePage() {
 							href="mailto: caseymockbee97@gmail.com"
 						>
 							<div className="contact-container-list-link-container">
-								Email <AiOutlineSend />
+								Send Email <AiOutlineMail />
+							</div>
+						</a>
+					</li>
+					<li className="contact-container-list-item">
+						<a
+							target="_blank"
+							rel="noreferrer"
+							className="contact-container-list"
+							href={`${process.env.PUBLIC_URL}/CaseyMockbeeResume.pdf`}
+						>
+							<div className="contact-container-list-link-container">
+								View Resume <AiFillFilePdf />
 							</div>
 						</a>
 					</li>
