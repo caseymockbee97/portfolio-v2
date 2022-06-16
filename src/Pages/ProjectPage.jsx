@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { NavContext } from "../Components/NavContext";
 import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
-// AiFillLinkedin
 
 export default function ProjectPage(props) {
 	let { skills, title, idName, image, liveLink, githubLink } = props.project;

@@ -15,6 +15,9 @@ $purple: #8a018c;
 $off-blue: #2e86ab;
 $off-pink: #a23b72;
 $off-purple: #7435a7;
+$off-green: #00a854;
+$off-red: #f44336;
+$off-yellow: #ffeb3b;
 
 //large screens
 :root {
@@ -26,6 +29,8 @@ $off-purple: #7435a7;
 	--font-xs: 1rem;
 	--skill-container: min(60vw, 1400px);
 	--scroll: 0;
+	--opposite-text: #d3d3d3;
+	--opposite-background: #181818;
 }
 
 // medium screens
@@ -281,10 +286,14 @@ nav {
 	&.even {
 		background-image: $background-dark;
 		color: $off-white;
+		--opposite-background: #d3d3d3;
+		--opposite-text: #181818;
 	}
 	&.odd {
 		background-image: $background-light;
 		color: $off-black;
+		--opposite-background: #181818;
+		--opposite-text: #d3d3d3;
 	}
 	&-container {
 		@include container;
@@ -292,16 +301,108 @@ nav {
 			font-size: var(--font-xl);
 			text-align: center;
 		}
+		.form {
+			&-container {
+				background-color: var(--opposite-background);
+				color: var(--opposite-text);
+				padding: var(--font-l);
+				box-sizing: border-box;
+				border-radius: var(--font-s);
+				text-align: center;
+				width: 100%;
+				margin-bottom: var(--font-s);
+				h2 {
+					text-align: center;
+					font-size: var(--font-l);
+					font-weight: bold;
+				}
+				p {
+					font-size: var(--font-m);
+					margin-top: var(--font-l);
+					margin-bottom: var(--font-l);
+					&.success {
+						color: $off-green;
+					}
+					&.failed {
+						color: $off-red;
+					}
+					&.loading {
+						color: $off-yellow;
+					}
+					a {
+						color: inherit;
+					}
+				}
+				button {
+					margin-top: var(--font-m);
+					font-size: var(--font-m);
+					background-color: $off-blue;
+					padding: var(--font-xs);
+					border-radius: var(--font-xs);
+					color: $off-black;
+					span {
+						display: flex;
+						align-items: center;
+						gap: var(--font-xs);
+					}
+				}
+			}
+			&-field {
+				display: flex;
+				flex-direction: column;
+				text-align: left;
+				color: var(--opposite-text);
+				label {
+					margin-top: var(--font-xs);
+				}
+				input,
+				textarea {
+					background-color: var(--opposite-text);
+					color: var(--opposite-background);
+					border: none;
+					border-radius: var(--font-xs);
+					padding: var(--font-xs);
+					font-size: var(--font-s);
+				}
+				textarea {
+					resize: vertical;
+					font-size: var(--font-s);
+
+					// edge + firefox
+					-ms-overflow-style: none;
+					scrollbar-width: none;
+					// chrome
+					&::-webkit-scrollbar {
+						display: none;
+					}
+				}
+			}
+		}
 		@include list-style;
 		&-list {
 			@include link-style($off-black, #000000);
+			margin-left: auto;
+			margin-right: auto;
 			&-link {
 				&-container {
 					display: flex;
 					align-items: center;
+					justify-content: center;
 					gap: var(--font-s);
 				}
 			}
 		}
+	}
+}
+
+.footer {
+	background-color: $off-black;
+	text-align: center;
+	padding-top: calc(var(--font-xs));
+	padding-bottom: calc(var(--font-xs));
+	&-link {
+		text-decoration: none;
+		color: $off-white;
+		font-size: var(--font-xs);
 	}
 }

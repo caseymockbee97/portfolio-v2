@@ -1,6 +1,7 @@
 {
-	"short_name": "React App",
-	"name": "Create React App Sample",
+	"short_name": "Casey Mockbee",
+	"name": "Casey Mockbee's Portfolio",
+	"Description": "Casey Mockbee's Full Stack Developer Portfolio",
 	"icons": [
 		{
 			"src": "favicon.ico",
@@ -24,8 +25,8 @@
 			"purpose": "any maskable"
 		}
 	],
-	"start_url": ".",
+	"start_url": "/",
 	"display": "standalone",
-	"theme_color": "#000000",
-	"background_color": "#ffffff"
+	"theme_color": "#2e86ab",
+	"background_color": "#181818"
 }

@@ -4,6 +4,7 @@ import NavComponent from "./Components/NavComponent";
 import { NavContext } from "./Components/NavContext";
 import ProgressBarComponent from "./Components/ProgressBarComponent";
 import ContactMePage from "./Pages/ContactMePage";
+import FooterPage from "./Pages/FooterPage";
 import LandingPage from "./Pages/LandingPage";
 import ProjectsPage from "./Pages/ProjectsPage";
 import SkillsPage from "./Pages/SkillsPage";
@@ -26,6 +27,7 @@ function App() {
 					<SkillsPage />
 					<ProjectsPage />
 					<ContactMePage />
+					<FooterPage />
 				</>
 			</NavContext.Provider>
 		</>

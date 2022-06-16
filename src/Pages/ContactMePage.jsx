@@ -7,6 +7,7 @@ import {
 	AiOutlineMail,
 } from "react-icons/ai";
 import { projects } from "../Assets/ProjectInfo";
+import SendEmailComponent from "../Components/SendEmailComponent";
 
 export default function ContactMePage() {
 	const isEven = projects.length % 2 === 0;
@@ -20,6 +21,7 @@ export default function ContactMePage() {
 		>
 			<div className="contact-container">
 				<h1 className="contact-container-header">Contact Me</h1>
+				<SendEmailComponent />
 				<ul className="contact-container-list">
 					<li className="contact-container-list-item">
 						<a
@@ -50,10 +52,10 @@ export default function ContactMePage() {
 							target="_blank"
 							rel="noreferrer"
 							className="contact-container-list"
-							href="mailto: caseymockbee97@gmail.com"
+							href={`${process.env.PUBLIC_URL}/CaseyMockbeeResume.pdf`}
 						>
 							<div className="contact-container-list-link-container">
-								Send Email <AiOutlineMail />
+								View Resume <AiFillFilePdf />
 							</div>
 						</a>
 					</li>
@@ -62,10 +64,10 @@ export default function ContactMePage() {
 							target="_blank"
 							rel="noreferrer"
 							className="contact-container-list"
-							href={`${process.env.PUBLIC_URL}/CaseyMockbeeResume.pdf`}
+							href="mailto: caseymockbee97@gmail.com"
 						>
 							<div className="contact-container-list-link-container">
-								View Resume <AiFillFilePdf />
+								Email <AiOutlineMail />
 							</div>
 						</a>
 					</li>
