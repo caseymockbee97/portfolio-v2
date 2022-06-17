@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import emailjs from "@emailjs/browser";
 import { AiOutlineSend } from "react-icons/ai";
 
 export default function SendEmailComponent() {
@@ -34,7 +33,6 @@ export default function SendEmailComponent() {
 	};
 
 	const sendEmail = (e) => {
-		console.log("Submitting form");
 		setEmailStatus(LOADING);
 		fetch("/", {
 			method: "POST",
@@ -43,30 +41,11 @@ export default function SendEmailComponent() {
 		})
 			.then(() => {
 				setEmailStatus(SENT);
-				console.log("sent");
 			})
 			.catch((err) => {
 				setEmailStatus(FAILED);
 				console.log(err);
 			});
-		// emailjs
-		// .sendForm(
-		// 	"service_6zlr8q8",
-		// 	"template_pb0gl1q",
-		// 	"#send-email-form",
-		// 	"tPf5WIXDGQslc4o2d"
-		// 	)
-		// 	.then(
-		// 		(res) => {
-		// 			setEmailStatus(SENT);
-		// 			console.log("SENT", res?.status, res?.text);
-		// 		},
-		// 		(err) => {
-		// 			setEmailStatus(FAILED);
-		// 			console.log("FAILED", err);
-		// 		}
-		// 		);
-		// 		e.preventDefault();
 	};
 	return (
 		<div className="form-container">
@@ -126,9 +105,10 @@ export default function SendEmailComponent() {
 			)}
 			{emailStatus === FAILED && (
 				<p className="failed">
-					OH NO!!! Something went wrong! Sorry for the inconvenience but you can
-					send me an email at{" "}
+					OH NO!!! Something went wrong! Sorry for the inconvenience but can you
+					send it to me at{" "}
 					<a href="mailto:caseymockbee97@gmail.com">caseymockbee97@gmail.com</a>{" "}
+					instead? Thanks!
 				</p>
 			)}
 			{emailStatus === LOADING && (
