@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { AiOutlineSend } from "react-icons/ai";
 
 export default function SendEmailComponent() {
@@ -10,33 +9,55 @@ export default function SendEmailComponent() {
 		"initial",
 	];
 	const [emailStatus, setEmailStatus] = useState(INITIAL);
-	const sendEmail = (e) => {
-		e.preventDefault();
-		console.log("Submitting form");
-		setEmailStatus(LOADING);
-		emailjs
-			.sendForm(
-				"service_6zlr8q8",
-				"template_pb0gl1q",
-				"#send-email-form",
-				"tPf5WIXDGQslc4o2d"
+	const [formFields, setFormFields] = useState({
+		from_name: "",
+		reply_to: "",
+		message: "",
+	});
+
+	const { from_name, reply_to, message } = formFields;
+
+	const encode = (data) => {
+		return Object.keys(data)
+			.map(
+				(key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
 			)
-			.then(
-				(res) => {
-					setEmailStatus(SENT);
-					console.log("SENT", res?.status, res?.text);
-				},
-				(err) => {
-					setEmailStatus(FAILED);
-					console.log("FAILED", err);
-				}
-			);
+			.join("&");
+	};
+
+	const handleChange = (e) => {
+		setFormFields({
+			...formFields,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+	const sendEmail = (e) => {
+		setEmailStatus(LOADING);
+		fetch("/", {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: encode({ "form-name": "send-email-form", ...formFields }),
+		})
+			.then(() => {
+				setEmailStatus(SENT);
+			})
+			.catch((err) => {
+				setEmailStatus(FAILED);
+				console.log(err);
+			});
 	};
 	return (
 		<div className="form-container">
 			<h2>Send Me An Email</h2>
 			{emailStatus === INITIAL && (
-				<form id="send-email-form" action="" onSubmit={sendEmail}>
+				<form
+					name="send-email-form"
+					id="send-email-form"
+					action=""
+					onSubmit={sendEmail}
+				>
+					<input type="hidden" name="form-name" value="send-email-form" />
 					<div className="form-field">
 						<label htmlFor="from_name">Your Name</label>
 						<input
@@ -44,6 +65,8 @@ export default function SendEmailComponent() {
 							type="text"
 							name="from_name"
 							id="from_name"
+							value={from_name}
+							onChange={handleChange}
 							required
 						/>
 					</div>
@@ -54,6 +77,8 @@ export default function SendEmailComponent() {
 							type="email"
 							name="reply_to"
 							id="reply_to"
+							value={reply_to}
+							onChange={handleChange}
 							required
 						/>
 					</div>
@@ -63,6 +88,8 @@ export default function SendEmailComponent() {
 							placeholder="I like your stuff, kid. Want a job?"
 							name="message"
 							id="message"
+							value={message}
+							onChange={handleChange}
 							required
 						/>
 					</div>
@@ -78,9 +105,10 @@ export default function SendEmailComponent() {
 			)}
 			{emailStatus === FAILED && (
 				<p className="failed">
-					OH NO!!! Something went wrong! Sorry for the inconvenience but you can
-					send me an email at{" "}
+					OH NO!!! Something went wrong! Sorry for the inconvenience but can you
+					send it to me at{" "}
 					<a href="mailto:caseymockbee97@gmail.com">caseymockbee97@gmail.com</a>{" "}
+					instead? Thanks!
 				</p>
 			)}
 			{emailStatus === LOADING && (
