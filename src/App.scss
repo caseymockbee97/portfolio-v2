@@ -29,8 +29,8 @@ $off-yellow: #ffeb3b;
 	--font-xs: 1rem;
 	--skill-container: min(60vw, 1400px);
 	--scroll: 0;
-	--opposite-text: #d3d3d3;
-	--opposite-background: #0c0c0c;
+	--opposite-text: #{$off-white};
+	--opposite-background: #{$off-black};
 }
 
 // medium screens
@@ -286,14 +286,14 @@ nav {
 	&.even {
 		background-image: $background-dark;
 		color: $off-white;
-		--opposite-background: #d3d3d3;
-		--opposite-text: #181818;
+		--opposite-background: #{$off-white};
+		--opposite-text: #{$off-black};
 	}
 	&.odd {
 		background-image: $background-light;
 		color: $off-black;
-		--opposite-background: #181818;
-		--opposite-text: #d3d3d3;
+		--opposite-background: #{$off-black};
+		--opposite-text: #{$off-white};
 	}
 	&-container {
 		@include container;

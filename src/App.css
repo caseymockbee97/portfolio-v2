@@ -397,13 +397,13 @@ nav a.sub-a {
   background-image: radial-gradient(circle at center, #000000, #0c0c0c 50vmax);
   color: #d3d3d3;
   --opposite-background: #d3d3d3;
-  --opposite-text: #181818;
+  --opposite-text: #0c0c0c;
 }
 
 .contact.odd {
   background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
   color: #0c0c0c;
-  --opposite-background: #181818;
+  --opposite-background: #0c0c0c;
   --opposite-text: #d3d3d3;
 }
 
