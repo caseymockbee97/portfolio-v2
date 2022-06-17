@@ -8,7 +8,7 @@
   --skill-container: min(60vw, 1400px);
   --scroll: 0;
   --opposite-text: #d3d3d3;
-  --opposite-background: #181818;
+  --opposite-background: #0c0c0c;
 }
 
 @media (min-width: 601px) and (max-width: 1000px) {
@@ -128,7 +128,7 @@ nav a.sub-a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-image: radial-gradient(circle at center, #000000, #181818 50vmax);
+  background-image: radial-gradient(circle at center, #000000, #0c0c0c 50vmax);
   color: #d3d3d3;
 }
 
@@ -213,7 +213,7 @@ nav a.sub-a {
       -ms-flex-pack: center;
           justify-content: center;
   background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
-  color: #181818;
+  color: #0c0c0c;
 }
 
 .skills-container {
@@ -250,7 +250,7 @@ nav a.sub-a {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.5rem;
-  color: #181818;
+  color: #0c0c0c;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
@@ -282,13 +282,13 @@ nav a.sub-a {
 }
 
 .project:nth-child(odd) {
-  background-image: radial-gradient(circle at center, #000000, #181818 50vmax);
+  background-image: radial-gradient(circle at center, #000000, #0c0c0c 50vmax);
   color: #d3d3d3;
 }
 
 .project:nth-child(even) {
   background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
-  color: #181818;
+  color: #0c0c0c;
 }
 
 .project-container {
@@ -362,7 +362,7 @@ nav a.sub-a {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.5rem;
-  color: #181818;
+  color: #0c0c0c;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
@@ -394,7 +394,7 @@ nav a.sub-a {
 }
 
 .contact.even {
-  background-image: radial-gradient(circle at center, #000000, #181818 50vmax);
+  background-image: radial-gradient(circle at center, #000000, #0c0c0c 50vmax);
   color: #d3d3d3;
   --opposite-background: #d3d3d3;
   --opposite-text: #181818;
@@ -402,7 +402,7 @@ nav a.sub-a {
 
 .contact.odd {
   background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
-  color: #181818;
+  color: #0c0c0c;
   --opposite-background: #181818;
   --opposite-text: #d3d3d3;
 }
@@ -463,7 +463,7 @@ nav a.sub-a {
   background-color: #2e86ab;
   padding: var(--font-xs);
   border-radius: var(--font-xs);
-  color: #181818;
+  color: #0c0c0c;
 }
 
 .contact-container .form-container button span {
@@ -536,7 +536,7 @@ nav a.sub-a {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.5rem;
-  color: #181818;
+  color: #0c0c0c;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
@@ -551,7 +551,7 @@ nav a.sub-a {
 
 .contact-container-list {
   text-decoration: none;
-  color: #181818;
+  color: #0c0c0c;
   -webkit-transition: color 0.7s;
   transition: color 0.7s;
   margin-left: auto;
@@ -576,7 +576,7 @@ nav a.sub-a {
 }
 
 .footer {
-  background-color: #181818;
+  background-color: #0c0c0c;
   text-align: center;
   padding-top: calc(var(--font-xs));
   padding-bottom: calc(var(--font-xs));
