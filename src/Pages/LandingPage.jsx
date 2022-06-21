@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
 import { NavContext } from "../Components/NavContext";
+import { InView } from "react-intersection-observer";
 
 export default function LandingPage() {
 	const { setActiveLink } = useContext(NavContext);
 
 	return (
-		<div
-			onMouseEnter={() => setActiveLink("home")}
+		<InView
+			as="div"
+			onChange={(inView, entry) => {
+				if (inView) setActiveLink("home");
+			}}
+			threshold={0.3}
 			id="home"
 			className="landing"
 		>
@@ -16,6 +21,6 @@ export default function LandingPage() {
 
 				<h3 className="landing-container-location">📍 Indianapolis, IN</h3>
 			</div>
-		</div>
+		</InView>
 	);
 }

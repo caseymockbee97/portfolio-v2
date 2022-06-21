@@ -1,13 +1,20 @@
 import React, { useContext } from "react";
 import { NavContext } from "../Components/NavContext";
 import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
+import { InView } from "react-intersection-observer";
 
 export default function ProjectPage(props) {
 	let { skills, title, idName, image, liveLink, githubLink } = props.project;
 	const { setActiveLink } = useContext(NavContext);
 	return (
-		<div
-			onMouseEnter={() => setActiveLink(idName)}
+		<InView
+			as="div"
+			onChange={(inView, entry) => {
+				if (inView) {
+					setActiveLink(idName);
+				}
+			}}
+			threshold={0.3}
 			id={idName}
 			className="project alternate-theme"
 		>
@@ -50,6 +57,6 @@ export default function ProjectPage(props) {
 					))}
 				</ul>
 			</div>
-		</div>
+		</InView>
 	);
 }

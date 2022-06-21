@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { NavContext } from "../Components/NavContext";
+import { InView } from "react-intersection-observer";
 
 export default function SkillsPage() {
 	const skills = [
@@ -23,8 +24,12 @@ export default function SkillsPage() {
 	const { setActiveLink } = useContext(NavContext);
 
 	return (
-		<div
-			onMouseEnter={() => setActiveLink("skills")}
+		<InView
+			as="div"
+			onChange={(inView, entry) => {
+				if (inView) setActiveLink("skills");
+			}}
+			threshold={0.3}
 			id="skills"
 			className="skills"
 		>
@@ -38,6 +43,6 @@ export default function SkillsPage() {
 					))}
 				</ul>
 			</div>
-		</div>
+		</InView>
 	);
 }
