@@ -4,12 +4,12 @@ import ProfileImage from "../Assets/Images/ProfileImage.png";
 import { NavContext } from "./NavContext";
 
 export default function NavComponent() {
-	const { activeLink, setActiveLink } = useContext(NavContext);
+	const { activeLink } = useContext(NavContext);
 	const idNames = projects.map((project) => project.idName);
 
 	return (
 		<nav>
-			<a aria-label="Home" href="#home" onClick={() => setActiveLink("home")}>
+			<a aria-label="Home" href="#home">
 				<img
 					aria-hidden
 					src={ProfileImage}

@@ -8,14 +8,21 @@ import {
 } from "react-icons/ai";
 import { projects } from "../Assets/ProjectInfo";
 import SendEmailComponent from "../Components/SendEmailComponent";
+import { InView } from "react-intersection-observer";
 
 export default function ContactMePage() {
 	const isEven = projects.length % 2 === 0;
 	const { setActiveLink } = useContext(NavContext);
 
 	return (
-		<div
-			onMouseEnter={() => setActiveLink("contact")}
+		<InView
+			as="div"
+			onChange={(inView, entry) => {
+				if (inView) {
+					setActiveLink("contact");
+				}
+			}}
+			threshold={0.3}
 			id="contact"
 			className={`contact ${isEven ? "even" : "odd"}`}
 		>
@@ -73,6 +80,6 @@ export default function ContactMePage() {
 					</li>
 				</ul>
 			</div>
-		</div>
+		</InView>
 	);
 }
