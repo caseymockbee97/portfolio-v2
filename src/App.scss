@@ -146,13 +146,15 @@ $off-yellow: #ffeb3b;
 	}
 }
 
-@mixin individual-page {
+@mixin individual-page($radius-dim: calc(var(--font-xl) * 1.5)) {
 	min-height: 100vh;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	border-top-left-radius: $radius-dim;
+	border-top-right-radius: $radius-dim;
 }
 
 @mixin container {
@@ -224,7 +226,11 @@ nav {
 }
 
 .landing {
-	@include individual-page;
+	&-background {
+		background-color: $off-white;
+	}
+	@include individual-page(0);
+
 	background-image: $background-dark;
 	color: $off-white;
 
@@ -256,6 +262,9 @@ nav {
 }
 
 .skills {
+	&-background {
+		background-color: $off-black;
+	}
 	@include individual-page;
 	background-image: $background-light;
 	color: $off-black;
@@ -269,47 +278,64 @@ nav {
 		@include list-style;
 	}
 }
-
-.project {
-	@include individual-page;
-	&:nth-child(odd) {
-		background-image: $background-dark;
-		color: $off-white;
-	}
-	&:nth-child(even) {
-		background-image: $background-light;
-		color: $off-black;
-	}
-	&-container {
-		@include container;
-		&-header {
-			font-size: var(--font-xl);
-			text-align: center;
-		}
-		&-links {
-			width: var(--skill-container);
-			display: flex;
-			justify-content: center;
-			gap: 2rem;
-			padding-top: var(--font-s);
-			&-link {
-				font-size: var(--font-s);
-				@include link-style;
-				&-container {
-					display: flex;
-					align-items: center;
-					gap: 5px;
+div {
+	@mixin project($project-background, $project-color) {
+		.project {
+			@include individual-page;
+			background: $project-background;
+			color: $project-color;
+			&-container {
+				@include container;
+				&-header {
+					font-size: var(--font-xl);
+					text-align: center;
 				}
+				&-links {
+					width: var(--skill-container);
+					display: flex;
+					justify-content: center;
+					gap: 2rem;
+					padding-top: var(--font-s);
+					&-link {
+						font-size: var(--font-s);
+						@include link-style;
+						&-container {
+							display: flex;
+							align-items: center;
+							gap: 5px;
+						}
+					}
+				}
+				&-image {
+					width: var(--skill-container);
+				}
+				@include list-style;
 			}
 		}
-		&-image {
-			width: var(--skill-container);
-		}
-		@include list-style;
+	}
+	.project-background:nth-child(odd) {
+		background-color: $off-white;
+	}
+	:nth-child(odd) {
+		@include project($background-dark, $off-white);
+	}
+	.project-background:nth-child(even) {
+		background-color: $off-black;
+	}
+	:nth-child(even) {
+		@include project($background-light, $off-black);
 	}
 }
-
 .contact {
+	&-background {
+		&.even {
+			background-color: $off-white;
+		}
+		&.odd {
+			background-color: $off-black;
+		}
+	}
+
 	@include individual-page;
 
 	&.even {

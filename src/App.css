@@ -153,8 +153,14 @@ nav a.sub-a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   background-image: radial-gradient(circle at center, #000000, #0c0c0c 50vmax);
   color: #d3d3d3;
+}
+
+.landing-background {
+  background-color: #d3d3d3;
 }
 
 .landing-container {
@@ -219,8 +225,14 @@ nav a.sub-a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border-top-left-radius: calc(var(--font-xl) * 1.5);
+  border-top-right-radius: calc(var(--font-xl) * 1.5);
   background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
   color: #0c0c0c;
+}
+
+.skills-background {
+  background-color: #0c0c0c;
 }
 
 .skills-container {
@@ -284,7 +296,11 @@ nav a.sub-a {
   transition: all 0.4s;
 }
 
-.project {
+div .project-background:nth-child(odd) {
+  background-color: #d3d3d3;
+}
+
+div :nth-child(odd) .project {
   min-height: 100vh;
   width: 100vw;
   display: -webkit-box;
@@ -300,29 +316,23 @@ nav a.sub-a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.project:nth-child(odd) {
-  background-image: radial-gradient(circle at center, #000000, #0c0c0c 50vmax);
+  border-top-left-radius: calc(var(--font-xl) * 1.5);
+  border-top-right-radius: calc(var(--font-xl) * 1.5);
+  background: radial-gradient(circle at center, #000000, #0c0c0c 50vmax);
   color: #d3d3d3;
 }
 
-.project:nth-child(even) {
-  background-image: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
-  color: #0c0c0c;
-}
-
-.project-container {
+div :nth-child(odd) .project-container {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
 
-.project-container-header {
+div :nth-child(odd) .project-container-header {
   font-size: var(--font-xl);
   text-align: center;
 }
 
-.project-container-links {
+div :nth-child(odd) .project-container-links {
   width: var(--skill-container);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -334,7 +344,7 @@ nav a.sub-a {
   padding-top: var(--font-s);
 }
 
-.project-container-links-link {
+div :nth-child(odd) .project-container-links-link {
   font-size: var(--font-s);
   text-decoration: none;
   color: #2e86ab;
@@ -342,11 +352,11 @@ nav a.sub-a {
   transition: color 0.7s;
 }
 
-.project-container-links-link:hover {
+div :nth-child(odd) .project-container-links-link:hover {
   color: #a23b72;
 }
 
-.project-container-links-link-container {
+div :nth-child(odd) .project-container-links-link-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -356,11 +366,11 @@ nav a.sub-a {
   gap: 5px;
 }
 
-.project-container-image {
+div :nth-child(odd) .project-container-image {
   width: var(--skill-container);
 }
 
-.project-container-list {
+div :nth-child(odd) .project-container-list {
   list-style-type: none;
   font-size: var(--font-l);
   max-width: var(--skill-container);
@@ -377,7 +387,7 @@ nav a.sub-a {
           justify-content: center;
 }
 
-.project-container-list-item, .project-container-list-link {
+div :nth-child(odd) .project-container-list-item, div :nth-child(odd) .project-container-list-link {
   display: block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -390,20 +400,144 @@ nav a.sub-a {
           transform-origin: left bottom;
 }
 
-.project-container-list-item:nth-child(2n + 1), .project-container-list-link:nth-child(2n + 1) {
+div :nth-child(odd) .project-container-list-item:nth-child(2n + 1), div :nth-child(odd) .project-container-list-link:nth-child(2n + 1) {
   background-color: #2e86ab;
 }
 
-.project-container-list-item:nth-child(2n + 2), .project-container-list-link:nth-child(2n + 2) {
+div :nth-child(odd) .project-container-list-item:nth-child(2n + 2), div :nth-child(odd) .project-container-list-link:nth-child(2n + 2) {
   background-color: #a23b72;
 }
 
-.project-container-list-item.not-loaded, .project-container-list-link.not-loaded {
+div :nth-child(odd) .project-container-list-item.not-loaded, div :nth-child(odd) .project-container-list-link.not-loaded {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
 
-.project-container-list-item.loaded, .project-container-list-link.loaded {
+div :nth-child(odd) .project-container-list-item.loaded, div :nth-child(odd) .project-container-list-link.loaded {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+div .project-background:nth-child(even) {
+  background-color: #0c0c0c;
+}
+
+div :nth-child(even) .project {
+  min-height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top-left-radius: calc(var(--font-xl) * 1.5);
+  border-top-right-radius: calc(var(--font-xl) * 1.5);
+  background: radial-gradient(circle at center, #ffffff, #d3d3d3 50vmax);
+  color: #0c0c0c;
+}
+
+div :nth-child(even) .project-container {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+div :nth-child(even) .project-container-header {
+  font-size: var(--font-xl);
+  text-align: center;
+}
+
+div :nth-child(even) .project-container-links {
+  width: var(--skill-container);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+  padding-top: var(--font-s);
+}
+
+div :nth-child(even) .project-container-links-link {
+  font-size: var(--font-s);
+  text-decoration: none;
+  color: #2e86ab;
+  -webkit-transition: color 0.7s;
+  transition: color 0.7s;
+}
+
+div :nth-child(even) .project-container-links-link:hover {
+  color: #a23b72;
+}
+
+div :nth-child(even) .project-container-links-link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+div :nth-child(even) .project-container-image {
+  width: var(--skill-container);
+}
+
+div :nth-child(even) .project-container-list {
+  list-style-type: none;
+  font-size: var(--font-l);
+  max-width: var(--skill-container);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div :nth-child(even) .project-container-list-item, div :nth-child(even) .project-container-list-link {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.5rem;
+  color: #0c0c0c;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+}
+
+div :nth-child(even) .project-container-list-item:nth-child(2n + 1), div :nth-child(even) .project-container-list-link:nth-child(2n + 1) {
+  background-color: #2e86ab;
+}
+
+div :nth-child(even) .project-container-list-item:nth-child(2n + 2), div :nth-child(even) .project-container-list-link:nth-child(2n + 2) {
+  background-color: #a23b72;
+}
+
+div :nth-child(even) .project-container-list-item.not-loaded, div :nth-child(even) .project-container-list-link.not-loaded {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+div :nth-child(even) .project-container-list-item.loaded, div :nth-child(even) .project-container-list-link.loaded {
   -webkit-transform: scale(1);
           transform: scale(1);
   -webkit-transition: all 0.4s;
@@ -426,6 +560,16 @@ nav a.sub-a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border-top-left-radius: calc(var(--font-xl) * 1.5);
+  border-top-right-radius: calc(var(--font-xl) * 1.5);
+}
+
+.contact-background.even {
+  background-color: #d3d3d3;
+}
+
+.contact-background.odd {
+  background-color: #0c0c0c;
 }
 
 .contact.even {

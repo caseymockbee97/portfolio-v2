@@ -20,36 +20,39 @@ export default function SkillsPage() {
 		"Figma",
 		"VS Code",
 		"Storybook",
+		"Lighthouse",
 	];
 	const [loaded, setLoaded] = useState(false);
 
 	const { setActiveLink } = useContext(NavContext);
 
 	return (
-		<InView
-			as="div"
-			onChange={(inView, entry) => {
-				if (inView) setActiveLink("skills");
-				if (inView && !loaded) setLoaded(inView);
-			}}
-			threshold={0.5}
-			id="skills"
-			className="skills"
-		>
-			<div className="skills-container">
-				<h1 className="skills-container-header">Technical Skills</h1>
-				<ul className="skills-container-list">
-					{skills.map((skill, i) => (
-						<ListItemComponent
-							key={skill}
-							loaded={loaded}
-							skill={skill}
-							classNameProp="skills-container-list-item"
-							index={i}
-						/>
-					))}
-				</ul>
-			</div>
-		</InView>
+		<div className="skills-background">
+			<InView
+				as="div"
+				onChange={(inView, entry) => {
+					if (inView) setActiveLink("skills");
+					if (inView && !loaded) setLoaded(inView);
+				}}
+				threshold={0.5}
+				id="skills"
+				className="skills"
+			>
+				<div className="skills-container">
+					<h1 className="skills-container-header">Technical Skills</h1>
+					<ul className="skills-container-list">
+						{skills.map((skill, i) => (
+							<ListItemComponent
+								key={skill}
+								loaded={loaded}
+								skill={skill}
+								classNameProp="skills-container-list-item"
+								index={i}
+							/>
+						))}
+					</ul>
+				</div>
+			</InView>
+		</div>
 	);
 }

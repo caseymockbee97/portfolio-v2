@@ -7,3 +7,4 @@
 - HTML
 - GitHub
 - react-icons
+- react-intersection-observer
