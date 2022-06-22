@@ -19,6 +19,8 @@ $off-green: #00a854;
 $off-red: #f44336;
 $off-yellow: #ffeb3b;
 
+// CSS VARIABLES FOR RESPONSIVE DESIGN
+
 //large screens
 :root {
 	--font-xxl: 7rem;
@@ -32,6 +34,10 @@ $off-yellow: #ffeb3b;
 	--opposite-text: #{$off-white};
 	--opposite-background: #{$off-black};
 }
+
+/* START MEDIA QUERIES */
+
+// css variables media queries
 
 // medium screens
 @media (min-width: 601px) and (max-width: 1000px) {
@@ -60,6 +66,41 @@ $off-yellow: #ffeb3b;
 		--skill-container: 90vw;
 	}
 }
+
+// Nav media queries
+
+// large screen size
+@media (min-width: 1301px) {
+	nav {
+		width: fit-content;
+		height: 100vh;
+		right: 2rem;
+		flex-direction: column;
+		justify-content: center;
+		a .nav-image {
+			width: 2em;
+			padding-left: var(--font-xs);
+		}
+	}
+}
+
+// small screen size
+@media (max-width: 1300px) {
+	nav {
+		width: 100vw;
+		top: 1rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--font-s);
+		a.sub-a {
+			display: none;
+		}
+	}
+}
+
+/* END MEDIA QUERIES */
+
+/* START MIXINS */
 
 @mixin link-style($initial: $off-blue, $final: $off-pink) {
 	text-decoration: none;
@@ -93,6 +134,14 @@ $off-yellow: #ffeb3b;
 			&:nth-child(2n + 2) {
 				background-color: $off-pink;
 			}
+			&.not-loaded {
+				transform: scale(0);
+			}
+			&.loaded {
+				transform: scale(1);
+				transition: all 0.4s;
+			}
+			transform-origin: left bottom;
 		}
 	}
 }
@@ -129,6 +178,23 @@ $off-yellow: #ffeb3b;
 	animation: animated-text 10s infinite alternate;
 }
 
+/* END MIXINS */
+
+/* START KEYFRAMES */
+
+@keyframes animated-text {
+	0% {
+		background-position: 0px 0px;
+	}
+	100% {
+		background-position: 100% 0px;
+	}
+}
+
+/* END KEYFRAMES */
+
+/* START GENERAL STYLING */
+
 .progress-bar {
 	height: 3px;
 	width: calc(var(--scroll) * 100%);
@@ -137,6 +203,7 @@ $off-yellow: #ffeb3b;
 }
 
 nav {
+	z-index: 1;
 	display: flex;
 	position: fixed;
 	font-size: var(--font-m);
@@ -153,35 +220,6 @@ nav {
 	a.sub-a {
 		font-size: var(--font-xs);
 		text-indent: var(--font-xs);
-	}
-}
-
-// large screen size
-@media (min-width: 1301px) {
-	nav {
-		width: fit-content;
-		height: 100vh;
-		right: 2rem;
-		flex-direction: column;
-		justify-content: center;
-		a .nav-image {
-			width: 2em;
-			padding-left: var(--font-xs);
-		}
-	}
-}
-
-// small screen size
-@media (max-width: 1300px) {
-	nav {
-		width: 100vw;
-		top: 1rem;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: var(--font-s);
-		a.sub-a {
-			display: none;
-		}
 	}
 }
 
@@ -214,15 +252,6 @@ nav {
 			text-align: center;
 			font-weight: 300;
 		}
-	}
-}
-
-@keyframes animated-text {
-	0% {
-		background-position: 0px 0px;
-	}
-	100% {
-		background-position: 100% 0px;
 	}
 }
 
@@ -406,3 +435,5 @@ nav {
 		font-size: var(--font-xs);
 	}
 }
+
+/* END GENERAL STYLING */

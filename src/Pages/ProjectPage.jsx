@@ -1,11 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavContext } from "../Components/NavContext";
 import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
 import { InView } from "react-intersection-observer";
+import ListItemComponent from "../Components/ListItemComponent";
 
 export default function ProjectPage(props) {
 	let { skills, title, idName, image, liveLink, githubLink } = props.project;
 	const { setActiveLink } = useContext(NavContext);
+	const [loaded, setLoaded] = useState(false);
+
 	return (
 		<InView
 			as="div"
@@ -13,8 +16,9 @@ export default function ProjectPage(props) {
 				if (inView) {
 					setActiveLink(idName);
 				}
+				if (inView && !loaded) setLoaded(true);
 			}}
-			threshold={0.3}
+			threshold={0.5}
 			id={idName}
 			className="project alternate-theme"
 		>
@@ -50,10 +54,14 @@ export default function ProjectPage(props) {
 					alt={`screenshot of ${title}`}
 				/>
 				<ul className="project-container-list">
-					{skills.map((skill) => (
-						<li key={skill} className="project-container-list-item">
-							{skill}
-						</li>
+					{skills.map((skill, i) => (
+						<ListItemComponent
+							key={skill}
+							loaded={loaded}
+							skill={skill}
+							classNameProp="project-container-list-item"
+							index={i}
+						/>
 					))}
 				</ul>
 			</div>

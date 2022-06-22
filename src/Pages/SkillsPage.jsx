@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavContext } from "../Components/NavContext";
 import { InView } from "react-intersection-observer";
+import ListItemComponent from "../Components/ListItemComponent";
 
 export default function SkillsPage() {
 	const skills = [
@@ -20,6 +21,7 @@ export default function SkillsPage() {
 		"VS Code",
 		"Storybook",
 	];
+	const [loaded, setLoaded] = useState(false);
 
 	const { setActiveLink } = useContext(NavContext);
 
@@ -28,18 +30,23 @@ export default function SkillsPage() {
 			as="div"
 			onChange={(inView, entry) => {
 				if (inView) setActiveLink("skills");
+				if (inView && !loaded) setLoaded(inView);
 			}}
-			threshold={0.3}
+			threshold={0.5}
 			id="skills"
 			className="skills"
 		>
 			<div className="skills-container">
 				<h1 className="skills-container-header">Technical Skills</h1>
 				<ul className="skills-container-list">
-					{skills.map((skill) => (
-						<li key={skill} className="skills-container-list-item">
-							{skill}
-						</li>
+					{skills.map((skill, i) => (
+						<ListItemComponent
+							key={skill}
+							loaded={loaded}
+							skill={skill}
+							classNameProp="skills-container-list-item"
+							index={i}
+						/>
 					))}
 				</ul>
 			</div>

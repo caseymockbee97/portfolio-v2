@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavContext } from "../Components/NavContext";
 import {
 	AiFillFilePdf,
@@ -9,10 +9,12 @@ import {
 import { projects } from "../Assets/ProjectInfo";
 import SendEmailComponent from "../Components/SendEmailComponent";
 import { InView } from "react-intersection-observer";
+import LinkItemComponent from "../Components/LinkItemComponent";
 
 export default function ContactMePage() {
 	const isEven = projects.length % 2 === 0;
 	const { setActiveLink } = useContext(NavContext);
+	const [loaded, setLoaded] = useState(false);
 
 	return (
 		<InView
@@ -21,6 +23,7 @@ export default function ContactMePage() {
 				if (inView) {
 					setActiveLink("contact");
 				}
+				if (inView && !loaded) setLoaded(true);
 			}}
 			threshold={0.3}
 			id="contact"
@@ -30,54 +33,34 @@ export default function ContactMePage() {
 				<h1 className="contact-container-header">Contact Me</h1>
 				<SendEmailComponent />
 				<ul className="contact-container-list">
-					<li className="contact-container-list-item">
-						<a
-							target="_blank"
-							rel="noreferrer"
-							className="contact-container-list"
-							href="https://github.com/caseymockbee97"
-						>
-							<div className="contact-container-list-link-container">
-								GitHub <AiFillGithub />
-							</div>
-						</a>
-					</li>
-					<li className="contact-container-list-item">
-						<a
-							target="_blank"
-							rel="noreferrer"
-							className="contact-container-list"
-							href="https://www.linkedin.com/in/casey-mockbee/"
-						>
-							<div className="contact-container-list-link-container">
-								LinkedIn <AiFillLinkedin />
-							</div>
-						</a>
-					</li>
-					<li className="contact-container-list-item">
-						<a
-							target="_blank"
-							rel="noreferrer"
-							className="contact-container-list"
-							href={`${process.env.PUBLIC_URL}/CaseyMockbeeResume.pdf`}
-						>
-							<div className="contact-container-list-link-container">
-								View Resume <AiFillFilePdf />
-							</div>
-						</a>
-					</li>
-					<li className="contact-container-list-item">
-						<a
-							target="_blank"
-							rel="noreferrer"
-							className="contact-container-list"
-							href="mailto: caseymockbee97@gmail.com"
-						>
-							<div className="contact-container-list-link-container">
-								Email <AiOutlineMail />
-							</div>
-						</a>
-					</li>
+					<LinkItemComponent
+						loaded={loaded}
+						title={"GitHub"}
+						index={0}
+						icon={<AiFillGithub />}
+						link={"https://github.com/caseymockbee97"}
+					/>
+					<LinkItemComponent
+						loaded={loaded}
+						title={"LinkedIn"}
+						index={1}
+						icon={<AiFillLinkedin />}
+						link={"https://www.linkedin.com/in/casey-mockbee/"}
+					/>
+					<LinkItemComponent
+						loaded={loaded}
+						title={"View Resume"}
+						index={2}
+						icon={<AiFillFilePdf />}
+						link={`${process.env.PUBLIC_URL}/CaseyMockbeeResume.pdf`}
+					/>
+					<LinkItemComponent
+						loaded={loaded}
+						title={"Email"}
+						index={3}
+						icon={<AiOutlineMail />}
+						link="mailto: caseymockbee97@gmail.com"
+					/>
 				</ul>
 			</div>
 		</InView>
