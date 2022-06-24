@@ -111,41 +111,6 @@ $off-yellow: #ffeb3b;
 	}
 }
 
-@mixin list-style {
-	&-list {
-		list-style-type: none;
-		font-size: var(--font-l);
-		max-width: var(--skill-container);
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		&-item,
-		&-link {
-			display: block;
-			width: fit-content;
-			margin: 0.5rem;
-			color: $off-black;
-			padding: 0.5rem 1rem;
-			border-radius: 0.5rem;
-			&:nth-child(2n + 1) {
-				background-color: $off-blue;
-			}
-			&:nth-child(2n + 2) {
-				background-color: $off-pink;
-			}
-			&.not-loaded {
-				transform: scale(0);
-			}
-			&.loaded {
-				transform: scale(1);
-				transition: all 0.4s;
-			}
-			transform-origin: left bottom;
-		}
-	}
-}
-
 @mixin individual-page($radius-dim: calc(var(--font-xl) * 1.5)) {
 	min-height: 100vh;
 	width: 100vw;
@@ -154,7 +119,7 @@ $off-yellow: #ffeb3b;
 	align-items: center;
 	justify-content: center;
 	border-top-left-radius: $radius-dim;
-	border-top-right-radius: $radius-dim;
+	border-bottom-right-radius: $radius-dim;
 }
 
 @mixin container {
@@ -225,15 +190,78 @@ nav {
 	}
 }
 
-.landing {
-	&-background {
-		background-color: $off-white;
+.container {
+	&-light {
+		background-color: $off-black;
+		& > div {
+			&.top {
+				@include individual-page(0);
+			}
+			&.main {
+				@include individual-page();
+			}
+			background-image: $background-light;
+			color: $off-black;
+		}
 	}
-	@include individual-page(0);
+	&-dark {
+		background-color: $off-white;
+		& > div {
+			&.top {
+				@include individual-page(0);
+			}
+			&.main {
+				@include individual-page();
+			}
+			background-image: $background-dark;
+			color: $off-white;
+		}
+	}
+}
 
-	background-image: $background-dark;
-	color: $off-white;
+.list {
+	list-style-type: none;
+	font-size: var(--font-l);
+	max-width: var(--skill-container);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	&-item,
+	&-link {
+		display: block;
+		width: fit-content;
+		margin: 0.5rem;
+		color: $off-black;
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+		&:nth-child(2n + 1) {
+			background-color: $off-blue;
+		}
+		&:nth-child(2n + 2) {
+			background-color: $off-pink;
+		}
+		&.not-loaded {
+			transform: scale(0);
+		}
+		&.loaded {
+			transform: scale(1);
+			transition: all 0.4s;
+		}
+		transform-origin: left bottom;
+		&-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: var(--font-s);
+		}
+		&-a {
+			@include link-style($off-black, #000000);
+		}
+	}
+}
 
+.landing {
 	&-container {
 		@include container;
 		display: flex;
@@ -262,12 +290,6 @@ nav {
 }
 
 .skills {
-	&-background {
-		background-color: $off-black;
-	}
-	@include individual-page;
-	background-image: $background-light;
-	color: $off-black;
 	&-container {
 		@include container;
 		&-header {
@@ -275,81 +297,38 @@ nav {
 			font-size: var(--font-xl);
 			padding-bottom: 2rem;
 		}
-		@include list-style;
 	}
 }
-div {
-	@mixin project($project-background, $project-color) {
-		.project {
-			@include individual-page;
-			background: $project-background;
-			color: $project-color;
-			&-container {
-				@include container;
-				&-header {
-					font-size: var(--font-xl);
-					text-align: center;
-				}
-				&-links {
-					width: var(--skill-container);
+.project {
+	&-container {
+		@include container;
+		&-header {
+			font-size: var(--font-xl);
+			text-align: center;
+		}
+		&-links {
+			width: var(--skill-container);
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+			padding-top: var(--font-s);
+
+			&-link {
+				font-size: var(--font-s);
+				@include link-style;
+				&-container {
 					display: flex;
-					justify-content: center;
-					gap: 2rem;
-					padding-top: var(--font-s);
-					&-link {
-						font-size: var(--font-s);
-						@include link-style;
-						&-container {
-							display: flex;
-							align-items: center;
-							gap: 5px;
-						}
-					}
+					align-items: center;
+					gap: 5px;
 				}
-				&-image {
-					width: var(--skill-container);
-				}
-				@include list-style;
 			}
 		}
-	}
-	.project-background:nth-child(odd) {
-		background-color: $off-white;
-	}
-	:nth-child(odd) {
-		@include project($background-dark, $off-white);
-	}
-	.project-background:nth-child(even) {
-		background-color: $off-black;
-	}
-	:nth-child(even) {
-		@include project($background-light, $off-black);
+		&-image {
+			width: var(--skill-container);
+		}
 	}
 }
 .contact {
-	&-background {
-		&.even {
-			background-color: $off-white;
-		}
-		&.odd {
-			background-color: $off-black;
-		}
-	}
-
-	@include individual-page;
-
-	&.even {
-		background-image: $background-dark;
-		color: $off-white;
-		--opposite-background: #{$off-white};
-		--opposite-text: #{$off-black};
-	}
-	&.odd {
-		background-image: $background-light;
-		color: $off-black;
-		--opposite-background: #{$off-black};
-		--opposite-text: #{$off-white};
-	}
 	&-container {
 		@include container;
 		&-header {
@@ -358,8 +337,8 @@ div {
 		}
 		.form {
 			&-container {
-				background-color: var(--opposite-background);
-				color: var(--opposite-text);
+				background-color: $off-black;
+				color: $off-white;
 				padding: var(--font-l);
 				box-sizing: border-box;
 				border-radius: var(--font-s);
@@ -395,6 +374,7 @@ div {
 					padding: var(--font-xs);
 					border-radius: var(--font-xs);
 					color: $off-black;
+					cursor: pointer;
 					span {
 						display: flex;
 						align-items: center;
@@ -406,14 +386,14 @@ div {
 				display: flex;
 				flex-direction: column;
 				text-align: left;
-				color: var(--opposite-text);
+				color: $off-white;
 				label {
 					margin-top: var(--font-xs);
 				}
 				input,
 				textarea {
-					background-color: var(--opposite-text);
-					color: var(--opposite-background);
+					background-color: $off-white;
+					color: $off-black;
 					border: none;
 					border-radius: var(--font-xs);
 					padding: var(--font-xs);
@@ -430,20 +410,6 @@ div {
 					&::-webkit-scrollbar {
 						display: none;
 					}
-				}
-			}
-		}
-		@include list-style;
-		&-list {
-			@include link-style($off-black, #000000);
-			margin-left: auto;
-			margin-right: auto;
-			&-link {
-				&-container {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					gap: var(--font-s);
 				}
 			}
 		}

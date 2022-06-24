@@ -5,18 +5,11 @@ export default function LinkItemComponent(props) {
 
 	return (
 		<li
-			className={`contact-container-list-item${
-				loaded ? " loaded" : " not-loaded"
-			}`}
+			className={`list-link ${loaded ? "loaded" : "not-loaded"}`}
 			style={{ transitionDelay: index * 0.05 + "s" }}
 		>
-			<a
-				target="_blank"
-				rel="noreferrer"
-				className="contact-container-list"
-				href={link}
-			>
-				<div className="contact-container-list-link-container">
+			<a target="_blank" rel="noreferrer" className="list-link-a" href={link}>
+				<div className="list-link-container">
 					{title} {icon}
 				</div>
 			</a>
