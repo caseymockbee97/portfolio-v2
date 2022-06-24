@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import "./App.css";
 import NavComponent from "./Components/NavComponent";
 import { NavContext } from "./Components/NavContext";
@@ -17,6 +17,12 @@ function App() {
 		() => ({ activeLink, setActiveLink }),
 		[activeLink, setActiveLink]
 	);
+
+	useEffect(() => {
+		document
+			.querySelector(":root")
+			.style.setProperty("--screen-height", `${window.innerHeight}px`);
+	}, []);
 
 	return (
 		<>

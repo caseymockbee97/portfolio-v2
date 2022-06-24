@@ -31,8 +31,7 @@ $off-yellow: #ffeb3b;
 	--font-xs: 1rem;
 	--skill-container: min(60vw, 1400px);
 	--scroll: 0;
-	--opposite-text: #{$off-white};
-	--opposite-background: #{$off-black};
+	--screen-height: 100vh;
 }
 
 /* START MEDIA QUERIES */
@@ -112,7 +111,7 @@ $off-yellow: #ffeb3b;
 }
 
 @mixin individual-page($radius-dim: calc(var(--font-xl) * 1.5)) {
-	min-height: 100vh;
+	min-height: var(--screen-height);
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
@@ -256,7 +255,7 @@ nav {
 			gap: var(--font-s);
 		}
 		&-a {
-			@include link-style($off-black, #000000);
+			@include link-style($off-black, #1f1f1f);
 		}
 	}
 }
