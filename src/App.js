@@ -8,6 +8,7 @@ import FooterPage from "./Pages/FooterPage";
 import LandingPage from "./Pages/LandingPage";
 import ProjectsPage from "./Pages/ProjectsPage";
 import SkillsPage from "./Pages/SkillsPage";
+import ContainerLayout from "./Layouts/ContainerLayout";
 
 function App() {
 	const [activeLink, setActiveLink] = useState("home");
@@ -23,10 +24,16 @@ function App() {
 			<NavContext.Provider value={providerValue}>
 				<NavComponent />
 				<>
-					<LandingPage />
-					<SkillsPage />
+					<ContainerLayout idName={"home"} isTop={true}>
+						<LandingPage />
+					</ContainerLayout>
+					<ContainerLayout idName={"skills"} isDarkTheme={false}>
+						<SkillsPage />
+					</ContainerLayout>
 					<ProjectsPage />
-					<ContactMePage />
+					<ContainerLayout idName={"contact"} isDarkTheme={false}>
+						<ContactMePage />
+					</ContainerLayout>
 					<FooterPage />
 				</>
 			</NavContext.Provider>
