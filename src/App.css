@@ -33,6 +33,12 @@
     --font-xs: calc(1rem * 0.5);
     --skill-container: 90vw;
   }
+  input#reply_to, input#from_name, input#message,
+  textarea#reply_to,
+  textarea#from_name,
+  textarea#message {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1301px) {

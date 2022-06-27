@@ -64,6 +64,14 @@ $off-yellow: #ffeb3b;
 		--font-xs: calc(1rem * #{$multiplier});
 		--skill-container: 90vw;
 	}
+	input,
+	textarea {
+		&#reply_to,
+		&#from_name,
+		&#message {
+			font-size: 16px;
+		}
+	}
 }
 
 // Nav media queries
