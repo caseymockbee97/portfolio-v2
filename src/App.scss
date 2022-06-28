@@ -426,12 +426,12 @@ nav {
 .footer {
 	background-color: $off-black;
 	text-align: center;
-	padding-top: calc(var(--font-xs));
-	padding-bottom: calc(var(--font-xs));
+	padding-top: calc(var(--font-m));
+	padding-bottom: calc(var(--font-m));
 	&-link {
 		text-decoration: none;
 		color: $off-white;
-		font-size: var(--font-xs);
+		font-size: var(--font-m);
 	}
 }
 
