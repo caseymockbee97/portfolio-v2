@@ -343,6 +343,10 @@ nav {
 			text-align: center;
 		}
 		.form {
+			&-textarea-char-limit {
+				text-align: right;
+				font-size: var(--font-xs);
+			}
 			&-container {
 				background-color: $off-black;
 				color: $off-white;

@@ -429,6 +429,11 @@ nav a.sub-a {
   text-align: center;
 }
 
+.contact-container .form-textarea-char-limit {
+  text-align: right;
+  font-size: var(--font-xs);
+}
+
 .contact-container .form-container {
   background-color: #0c0c0c;
   color: #d3d3d3;

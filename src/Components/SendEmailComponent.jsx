@@ -14,6 +14,7 @@ export default function SendEmailComponent() {
 		reply_to: "",
 		message: "",
 	});
+	const MAXLENGTH = 1000;
 
 	const { from_name, reply_to, message } = formFields;
 
@@ -61,7 +62,7 @@ export default function SendEmailComponent() {
 					<div className="form-field">
 						<label htmlFor="from_name">Your Name</label>
 						<input
-							placeholder="Casey Mockbee..."
+							placeholder="Your name goes here..."
 							type="text"
 							name="from_name"
 							id="from_name"
@@ -73,7 +74,7 @@ export default function SendEmailComponent() {
 					<div className="form-field">
 						<label htmlFor="reply_to">Your email</label>
 						<input
-							placeholder="caseymockbee97@gmail.com"
+							placeholder="Your email goes here..."
 							type="email"
 							name="reply_to"
 							id="reply_to"
@@ -85,13 +86,17 @@ export default function SendEmailComponent() {
 					<div className="form-field">
 						<label htmlFor="message">Your Message</label>
 						<textarea
-							placeholder="I like your stuff, kid. Want a job?"
+							placeholder="Type up your message to me here..."
 							name="message"
 							id="message"
 							value={message}
 							onChange={handleChange}
+							maxLength={MAXLENGTH}
 							required
 						/>
+						<span aria-hidden className="form-textarea-char-limit">
+							{formFields.message.length}/{MAXLENGTH}
+						</span>
 					</div>
 					<button type="submit">
 						<span>
