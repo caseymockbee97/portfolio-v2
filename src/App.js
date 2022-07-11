@@ -36,7 +36,9 @@ function App() {
 					<ContainerLayout idName={"skills"} isDarkTheme={false}>
 						<SkillsPage />
 					</ContainerLayout>
-					<ProjectsPage />
+					<ContainerLayout idName={"projects"} isDarkTheme={true} onlyStyle>
+						<ProjectsPage />
+					</ContainerLayout>
 					<ContainerLayout idName={"contact"} isDarkTheme={false}>
 						<ContactMePage />
 					</ContainerLayout>

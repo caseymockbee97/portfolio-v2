@@ -3,6 +3,26 @@ import SpacetagramImage from "./Images/Spacetagram.png";
 import GetItDoneImage from "./Images/GetItDone.png";
 
 export let projects = [
+	// {
+	// 	title: "My Portfolio",
+	// 	image: IndyFoodImage,
+	// 	skills: [
+	// 		"React JS",
+	// 		"Javascript",
+	// 		"HTML",
+	// 		"Git",
+	// 		"SASS",
+	// 		"Figma",
+	// 		"Netlify",
+	// 		"Netlify Forms",
+	// 		"Lighthouse",
+	// 		"Intersection Observer",
+	// 	],
+	// 	description: "",
+	// 	liveLink: "https://vocal-liger-00206f.netlify.app/",
+	// 	githubLink: "https://github.com/caseymockbee97/indy-food-blog",
+	// 	idName: "indy-food",
+	// },
 	{
 		title: "Indy Food",
 		image: IndyFoodImage,

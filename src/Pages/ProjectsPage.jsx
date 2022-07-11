@@ -5,13 +5,10 @@ import ContainerLayout from "../Layouts/ContainerLayout";
 
 export default function ProjectsPage() {
 	return (
-		<div id="projects">
+		<div className="projects" id="projects">
+			<h1 className="projects-header">Projects</h1>
 			{projects.map((project, i) => (
-				<ContainerLayout
-					idName={project.idName}
-					key={project.idName}
-					isDarkTheme={i % 2 === 0}
-				>
+				<ContainerLayout noStyle key={project.idName} idName={project.idName}>
 					<ProjectPage project={project} />
 				</ContainerLayout>
 			))}

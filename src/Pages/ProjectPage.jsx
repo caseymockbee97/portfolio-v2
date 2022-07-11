@@ -2,12 +2,12 @@ import React from "react";
 import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
 import ListLayout from "../Layouts/ListLayout";
 
-export default function ProjectPage(props) {
-	let { skills, title, image, liveLink, githubLink } = props.project;
+export default function ProjectPage({ project, ...props }) {
+	let { skills, title, image, liveLink, githubLink } = project;
 
 	return (
 		<div className="project-container">
-			<h1 className="project-container-header">{title}</h1>
+			<h2 className="project-container-header">{title}</h2>
 			<div className="project-container-links">
 				<a
 					target="_blank"

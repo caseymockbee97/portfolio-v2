@@ -23,6 +23,7 @@ $off-yellow: #ffeb3b;
 
 //large screens
 :root {
+	--link-translate: 2px;
 	--font-xxl: 7rem;
 	--font-xl: 5rem;
 	--font-l: 3rem;
@@ -93,6 +94,9 @@ $off-yellow: #ffeb3b;
 
 // small screen size
 @media (max-width: 1300px) {
+	:root {
+		--link-translate: 0;
+	}
 	nav {
 		width: 100vw;
 		top: 1rem;
@@ -112,9 +116,10 @@ $off-yellow: #ffeb3b;
 @mixin link-style($initial: $off-blue, $final: $off-pink) {
 	text-decoration: none;
 	color: $initial;
-	transition: color 0.7s;
+	transition: all 0.7s;
 	&:hover {
 		color: $final;
+		transform: translateX(var(--link-translate));
 	}
 }
 
@@ -255,6 +260,7 @@ nav {
 			transform: scale(1);
 			transition: all 0.4s;
 		}
+
 		transform-origin: left bottom;
 		&-container {
 			display: flex;
@@ -263,7 +269,18 @@ nav {
 			gap: var(--font-s);
 		}
 		&-a {
-			@include link-style($off-black, #1f1f1f);
+			@include link-style($off-black, $off-black);
+		}
+	}
+	&-link {
+		cursor: pointer;
+		transition: all 0.4s;
+		box-shadow: 0 var(--link-translate) calc(2 * var(--link-translate))
+			#00000057;
+		&:hover {
+			transform: translateY(calc(-1 * var(--link-translate)));
+			box-shadow: 0 calc(2 * var(--link-translate))
+				calc(2 * var(--link-translate)) #00000038;
 		}
 	}
 }
@@ -306,11 +323,25 @@ nav {
 		}
 	}
 }
+
+.projects {
+	@include container;
+	&-header {
+		font-size: var(--font-xl);
+		text-align: center;
+	}
+}
+
 .project {
 	&-container {
-		@include container;
+		margin-top: 3rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		background-color: $off-white;
+		color: $off-black;
+		border-radius: var(--font-s);
 		&-header {
-			font-size: var(--font-xl);
+			font-size: var(--font-l);
 			text-align: center;
 		}
 		&-links {
