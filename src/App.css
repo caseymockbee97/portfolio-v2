@@ -297,9 +297,14 @@ nav a.sub-a {
 }
 
 .project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 3rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  padding-left: 2vw;
+  padding-right: 2vw;
   background-color: #d3d3d3;
   color: #0c0c0c;
   border-radius: var(--font-s);
@@ -309,7 +314,7 @@ nav a.sub-a {
   text-align: center;
 }
 .project-container-links {
-  width: var(--skill-container);
+  max-width: calc(var(--skill-container) - 4vw);
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -331,7 +336,7 @@ nav a.sub-a {
   gap: 5px;
 }
 .project-container-image {
-  width: var(--skill-container);
+  width: calc(var(--skill-container) - 4vw);
 }
 
 .contact-container {

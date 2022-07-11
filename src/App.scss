@@ -334,9 +334,14 @@ nav {
 
 .project {
 	&-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		margin-top: 3rem;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
+		padding-left: 2vw;
+		padding-right: 2vw;
 		background-color: $off-white;
 		color: $off-black;
 		border-radius: var(--font-s);
@@ -345,7 +350,7 @@ nav {
 			text-align: center;
 		}
 		&-links {
-			width: var(--skill-container);
+			max-width: calc(var(--skill-container) - 4vw);
 			display: flex;
 			justify-content: center;
 			gap: 2rem;
@@ -362,7 +367,7 @@ nav {
 			}
 		}
 		&-image {
-			width: var(--skill-container);
+			width: calc(var(--skill-container) - 4vw);
 		}
 	}
 }
