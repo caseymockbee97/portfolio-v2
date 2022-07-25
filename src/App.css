@@ -101,7 +101,7 @@ textarea#message {
   z-index: 2;
   width: 100vw;
   background-size: 200vw;
-  background-image: linear-gradient(90deg, #2e86ab, #2e86ab 49.5%, #a23b72 50.5%, #a23b72);
+  background-image: linear-gradient(90deg, #2e86ab, #2e86ab 50%, #a23b72 50%, #a23b72);
   background-position: calc(100% - var(--scroll) * 100%);
   position: fixed;
 }

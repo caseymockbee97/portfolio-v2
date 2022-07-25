@@ -186,8 +186,8 @@ $off-yellow: #ffeb3b;
 	background-image: linear-gradient(
 		90deg,
 		$off-blue,
-		$off-blue 49.5%,
-		$off-pink 50.5%,
+		$off-blue 50%,
+		$off-pink 50%,
 		$off-pink
 	);
 	background-position: calc(100% - var(--scroll) * 100%);
