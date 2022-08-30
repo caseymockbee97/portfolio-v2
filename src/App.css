@@ -128,6 +128,10 @@ nav a:hover {
 nav a.active {
   color: #a23b72;
 }
+nav a:focus {
+  transition: none;
+  outline: 2px solid #2e86ab;
+}
 nav a.sub-a {
   font-size: var(--font-xs);
   text-indent: var(--font-xs);
@@ -221,6 +225,10 @@ nav a.sub-a {
   transform: scale(1);
   transition: all 0.4s;
 }
+.list-item.active, .list-link.active {
+  transition: none;
+  outline: 4px solid black;
+}
 .list-item-container, .list-link-container {
   display: flex;
   align-items: center;
@@ -235,6 +243,9 @@ nav a.sub-a {
 .list-item-a:hover, .list-link-a:hover {
   color: #0c0c0c;
   transform: translateX(var(--link-translate));
+}
+.list-item-a:focus, .list-link-a:focus {
+  border: 1px solid black;
 }
 .list-link {
   cursor: pointer;
@@ -337,6 +348,10 @@ nav a.sub-a {
   color: #a23b72;
   transform: translateX(var(--link-translate));
 }
+.project-container-links-link:focus {
+  transition: none;
+  outline: 2px solid #2e86ab;
+}
 .project-container-links-link-container {
   display: flex;
   align-items: center;
@@ -404,6 +419,10 @@ nav a.sub-a {
   align-items: center;
   gap: var(--font-xs);
 }
+.contact-container .form-container button:focus {
+  transition: none;
+  outline: 4px solid #a23b72;
+}
 .contact-container .form-field {
   display: flex;
   flex-direction: column;
@@ -422,6 +441,11 @@ nav a.sub-a {
   padding: var(--font-xs);
   font-size: var(--font-s);
 }
+.contact-container .form-field input:focus,
+.contact-container .form-field textarea:focus {
+  transition: none;
+  outline: 4px solid #a23b72;
+}
 .contact-container .form-field textarea {
   resize: vertical;
   font-size: var(--font-s);
@@ -430,6 +454,10 @@ nav a.sub-a {
 }
 .contact-container .form-field textarea::-webkit-scrollbar {
   display: none;
+}
+.contact-container .form-field textarea:focus {
+  transition: none;
+  outline: 4px solid #a23b72;
 }
 
 .footer {
@@ -442,6 +470,10 @@ nav a.sub-a {
   text-decoration: none;
   color: #d3d3d3;
   font-size: var(--font-m);
+}
+.footer-link:focus {
+  transition: none;
+  outline: 2px solid #2e86ab;
 }
 
 /* END GENERAL STYLING *//*# sourceMappingURL=App.css.map */

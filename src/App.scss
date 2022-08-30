@@ -161,6 +161,13 @@ $off-yellow: #ffeb3b;
 	animation: animated-text 10s infinite alternate;
 }
 
+@mixin focused-item($color: $off-blue, $size: 2px) {
+	&:focus {
+		transition: none;
+		outline: $size solid $color;
+	}
+}
+
 /* END MIXINS */
 
 /* START KEYFRAMES */
@@ -208,6 +215,7 @@ nav {
 		&.active {
 			color: $off-pink;
 		}
+		@include focused-item();
 	}
 	a.sub-a {
 		font-size: var(--font-xs);
@@ -273,6 +281,10 @@ nav {
 			transform: scale(1);
 			transition: all 0.4s;
 		}
+		&.active {
+			transition: none;
+			outline: 4px solid black;
+		}
 
 		transform-origin: left bottom;
 		&-container {
@@ -283,6 +295,9 @@ nav {
 		}
 		&-a {
 			@include link-style($off-black, $off-black);
+			&:focus {
+				border: 1px solid black;
+			}
 		}
 	}
 	&-link {
@@ -290,6 +305,7 @@ nav {
 		transition: all 0.4s;
 		box-shadow: 0 var(--link-translate) calc(2 * var(--link-translate))
 			#00000057;
+
 		&:hover {
 			transform: translateY(calc(-1 * var(--link-translate)));
 			box-shadow: 0 calc(2 * var(--link-translate))
@@ -372,6 +388,7 @@ nav {
 			&-link {
 				font-size: var(--font-s);
 				@include link-style;
+				@include focused-item();
 				&-container {
 					display: flex;
 					align-items: center;
@@ -440,6 +457,7 @@ nav {
 						align-items: center;
 						gap: var(--font-xs);
 					}
+					@include focused-item($off-pink, 4px);
 				}
 			}
 			&-field {
@@ -458,6 +476,7 @@ nav {
 					border-radius: var(--font-xs);
 					padding: var(--font-xs);
 					font-size: var(--font-s);
+					@include focused-item($off-pink, 4px);
 				}
 				textarea {
 					resize: vertical;
@@ -470,6 +489,7 @@ nav {
 					&::-webkit-scrollbar {
 						display: none;
 					}
+					@include focused-item($off-pink, 4px);
 				}
 			}
 		}
@@ -485,6 +505,7 @@ nav {
 		text-decoration: none;
 		color: $off-white;
 		font-size: var(--font-m);
+		@include focused-item();
 	}
 }
 
