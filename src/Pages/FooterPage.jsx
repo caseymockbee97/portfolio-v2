@@ -9,6 +9,12 @@ export default function FooterPage() {
 			>
 				Credits
 			</a>
+			<a
+				className="footer-link"
+				href={`${process.env.PUBLIC_URL}/privacyPolicy.html`}
+			>
+				Privacy Policy
+			</a>
 		</div>
 	);
 }
