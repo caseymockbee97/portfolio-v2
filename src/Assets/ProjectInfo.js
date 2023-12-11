@@ -1,42 +1,41 @@
 import IndyFoodImage from "./Images/Indy-Food.png";
 import SpacetagramImage from "./Images/Spacetagram.png";
 import GetItDoneImage from "./Images/GetItDone.png";
+import VerticalScrambleImage from "./Images/Vertical-Scramble.png";
 
 export let projects = [
-	// {
-	// 	title: "My Portfolio",
-	// 	image: IndyFoodImage,
-	// 	skills: [
-	// 		"React JS",
-	// 		"Javascript",
-	// 		"HTML",
-	// 		"Git",
-	// 		"SASS",
-	// 		"Figma",
-	// 		"Netlify",
-	// 		"Netlify Forms",
-	// 		"Lighthouse",
-	// 		"Intersection Observer",
-	// 	],
-	// 	description: "",
-	// 	liveLink: "https://vocal-liger-00206f.netlify.app/",
-	// 	githubLink: "https://github.com/caseymockbee97/indy-food-blog",
-	// 	idName: "indy-food",
-	// },
+	{
+		title: "Vertical Scramble",
+		image: VerticalScrambleImage,
+		skills: [
+			"React JS",
+			"Redwood JS",
+			"Typescript",
+			"HTML",
+			"Git",
+			"Styled Components",
+			"Figma",
+			"Netlify",
+			"Storybook",
+		],
+		description: "",
+		liveLink: "https://verticalscramble.com",
+		idName: "vertical-scramble",
+	},
 	{
 		title: "Indy Food",
 		image: IndyFoodImage,
 		skills: [
-			"React JS",
-			"Redwood JS",
 			"Javascript",
-			"HTML",
+			"Redwood JS",
+			"React JS",
 			"Git",
 			"SASS",
 			"GraphQL",
 			"Figma",
 			"Netlify",
 			"Storybook",
+			"HTML",
 		],
 		description: "",
 		liveLink: "https://vocal-liger-00206f.netlify.app/",

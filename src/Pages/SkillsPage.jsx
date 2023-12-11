@@ -3,7 +3,11 @@ import ListLayout from "../Layouts/ListLayout";
 
 export default function SkillsPage() {
 	const skills = [
+		"Typescript",
 		"Javascript",
+		"Neo4j",
+		"Redis",
+		"GCP",
 		"Python",
 		"SQL & PL/SQL",
 		"Git",
@@ -18,7 +22,6 @@ export default function SkillsPage() {
 		"Figma",
 		"VS Code",
 		"Storybook",
-		"Lighthouse",
 	];
 
 	return (

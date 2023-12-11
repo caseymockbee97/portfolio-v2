@@ -9,17 +9,19 @@ export default function ProjectPage({ project, ...props }) {
 		<div className="project-container">
 			<h2 className="project-container-header">{title}</h2>
 			<div className="project-container-links">
-				<a
-					target="_blank"
-					rel="noreferrer"
-					className="project-container-links-link"
-					href={githubLink}
-				>
-					<div className="project-container-links-link-container">
-						<span>GitHub </span>
-						<AiFillGithub />
-					</div>
-				</a>
+				{githubLink && (
+					<a
+						target="_blank"
+						rel="noreferrer"
+						className="project-container-links-link"
+						href={githubLink}
+					>
+						<div className="project-container-links-link-container">
+							<span>GitHub </span>
+							<AiFillGithub />
+						</div>
+					</a>
+				)}
 				<a
 					target="_blank"
 					rel="noreferrer"
